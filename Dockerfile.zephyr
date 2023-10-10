@@ -59,16 +59,16 @@ RUN \
   && west init -l --mf west-zephyr.yml \
   && west update --narrow -o=--depth=1
 
-FROM workspace AS python
+# FROM workspace AS python
 
-RUN \
-  apt-get -y update \
-  && apt-get -y install --no-install-recommends \
-  python3 \
-  python3-pip \
-  && pip3 install --break-system-packages --no-cache-dir wheel \
-  && pip3 install --break-system-packages --no-cache-dir \
-  -r ./zephyr/scripts/requirements.txt \
-  && apt-get remove -y --purge \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/*
+# RUN \
+#   apt-get -y update \
+#   && apt-get -y install --no-install-recommends \
+#   python3 \
+#   python3-pip \
+#   && pip3 install --break-system-packages --no-cache-dir wheel \
+#   && pip3 install --break-system-packages --no-cache-dir \
+#   -r ./zephyr/scripts/requirements.txt \
+#   && apt-get remove -y --purge \
+#   && apt-get clean \
+#   && rm -rf /var/lib/apt/lists/*
