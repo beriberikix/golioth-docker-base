@@ -67,7 +67,7 @@ RUN \
   python3 \
   python3-pip \
   && pip3 install --break-system-packages --no-cache-dir wheel \
-  pwd && ls
+  && pwd && ls
   # && pip3 install --break-system-packages --no-cache-dir \
   # -r ../deps/zephyr/scripts/requirements-base.txt \
   # && apt-get remove -y --purge \
