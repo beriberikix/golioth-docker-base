@@ -14,6 +14,7 @@ manifest:
         path-prefix: deps
         name-allowlist:
           - cmsis
+          - hal_espressif
           - hal_nordic
           - hal_nxp
           - mcuboot
