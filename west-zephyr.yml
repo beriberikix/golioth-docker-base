@@ -7,7 +7,7 @@ manifest:
   projects:
     - name: golioth
       path: modules/lib/golioth-firmware-sdk
-      revision: memfault_demo_zephyr_rev
+      revision: v0.8.0
       url: https://github.com/golioth/golioth-firmware-sdk
       import:
         file: west-zephyr.yml
