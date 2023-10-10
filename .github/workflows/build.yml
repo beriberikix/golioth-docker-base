@@ -1,0 +1,43 @@
+name: Build base Docker image
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    env:
+      ZEPHYR_VERSION: v3.4.0
+      ZEPHYR_SDK_VERSION: 0.16.3
+      ZEPHYR_SDK_TOOLCHAINS: "-t arm-zephyr-eabi -t x86_64-zephyr-elf -t xtensa-espressif_esp32s2_zephyr-elf -t xtensa-espressif_esp32s3_zephyr-elf -t xtensa-espressif_esp32_zephyr-elf"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          file: Dockerfile.zephyr
+          push: true
+          tags: ghcr.io/beriberikix/golioth-zephyr-base:${{ env.ZEPHYR_VERSION }}-${{ env.ZEPHYR_SDK_VERSION }}
+          build-args: |
+            ZEPHYR_VERSION=${{ env.ZEPHYR_VERSION }}
+            ZEPHYR_SDK_VERSION=${{ env.ZEPHYR_SDK_VERSION }}
+            ZEPHYR_SDK_TOOLCHAIN=${{ env.ZEPHYR_SDK_TOOLCHAINS }}

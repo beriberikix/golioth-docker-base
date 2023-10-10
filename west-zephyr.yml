@@ -1,0 +1,30 @@
+# Copyright (c) 2023 Golioth, Inc.
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: 0.8
+
+  projects:
+    - name: golioth
+      path: modules/lib/golioth-firmware-sdk
+      revision: memfault_demo_zephyr_rev
+      url: https://github.com/golioth/golioth-firmware-sdk
+      import:
+        file: west-zephyr.yml
+        path-prefix: deps
+        name-allowlist:
+          - cmsis
+          - hal_nordic
+          - hal_nxp
+          - mcuboot
+          - mbedtls
+          - net-tools
+          - segger
+          - tfm-mcuboot
+          - tinycrypt
+          - trusted-firmware-m
+          - zcbor
+          - zephyr
+
+  self:
+    path: app
