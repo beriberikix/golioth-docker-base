@@ -52,7 +52,7 @@ RUN \
 
 FROM west As workspace
 
-COPY west-zephyr.yml zephyrproject/manifest
+COPY west-zephyr.yml zephyrproject/manifest/
 
 RUN \
   cd zephyrproject/manifest \
