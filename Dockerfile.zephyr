@@ -52,11 +52,11 @@ RUN \
 
 FROM west As workspace
 
-COPY west-zephyr.yml zephyrproject/
+COPY west-zephyr.yml zephyrproject/manifest
 
 RUN \
-  cd zephyrproject \
-  && west init -l --mf west-zephyr.yml \
+  cd zephyrproject/manifest \
+  && west init -l --mf west-zephyr.yml . \
   && west update --narrow -o=--depth=1
 
 # FROM workspace AS python
