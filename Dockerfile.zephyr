@@ -19,7 +19,6 @@ FROM base AS sdk
 ARG ZEPHYR_SDK_VERSION=0.16.1
 ARG ZEPHYR_SDK_INSTALL_DIR=/opt/zephyr-sdk
 ARG ZEPHYR_SDK_TOOLCHAINS="-t arm-zephyr-eabi"
-ENV ZEPHYR_SDK_TOOLCHAINS=${ZEPHYR_SDK_TOOLCHAINS}
 
 RUN \
   export sdk_file_name="zephyr-sdk-${ZEPHYR_SDK_VERSION}_linux-$(uname -m)_minimal.tar.xz" \
