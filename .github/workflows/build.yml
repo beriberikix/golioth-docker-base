@@ -35,8 +35,8 @@ jobs:
         with:
           file: Dockerfile.zephyr
           push: true
-          tags: ghcr.io/beriberikix/golioth-zephyr-base:${{ env.ZEPHYR_VERSION }}-${{ env.ZEPHYR_SDK_VERSION }}
+          tags: ghcr.io/beriberikix/golioth-zephyr-base:${{ env.ZEPHYR_SDK_VERSION }}sdk
           build-args: |
-            ZEPHYR_VERSION=${{ env.ZEPHYR_VERSION }}
+            # ZEPHYR_VERSION=${{ env.ZEPHYR_VERSION }}
             ZEPHYR_SDK_VERSION=${{ env.ZEPHYR_SDK_VERSION }}
             ZEPHYR_SDK_TOOLCHAINS=${{ env.ZEPHYR_SDK_TOOLCHAINS }}
