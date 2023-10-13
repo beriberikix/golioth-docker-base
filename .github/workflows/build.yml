@@ -18,7 +18,6 @@ jobs:
       matrix:
         ZEPHYR_SDK_VERSION: [0.16.1, 0.16.3]
 
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
