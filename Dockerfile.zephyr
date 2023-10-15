@@ -37,7 +37,7 @@ RUN \
 #   && apt-get clean \
 #   && rm -rf /var/lib/apt/lists/*
 
-FROM sdk AS pre-python
+FROM base AS pre-python
 
 RUN \
   echo -e "[global]\nbreak-system-packages = true" >> /etc/pip.conf \
