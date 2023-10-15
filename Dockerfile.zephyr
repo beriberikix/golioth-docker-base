@@ -40,7 +40,7 @@ RUN \
 FROM sdk AS pre-python
 
 RUN \
-  echo -e '[global]\nbreak-system-packages = true' >> /etc/pip.conf
+  echo -e "[global]\nbreak-system-packages = true" >> /etc/pip.conf
 
 FROM pre-python AS west
 
